@@ -16,12 +16,10 @@ export const Route = createFileRoute("/booking")({
   component: Booking,
 });
 
-function generateRef() {
-  return "ACS-" + Math.random().toString(36).slice(2, 8).toUpperCase();
-}
-
 function Booking() {
   const [submitted, setSubmitted] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   if (submitted) {
     return (
@@ -54,7 +52,43 @@ function Booking() {
       <section className="py-24">
         <div className="container-luxe max-w-3xl">
           <form
-            onSubmit={(e) => { e.preventDefault(); setSubmitted(generateRef()); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+            onSubmit={async (e) => {
+              e.preventDefault();
+              setError(null);
+              setIsSubmitting(true);
+
+              try {
+                const form = e.currentTarget;
+                const formData = new FormData(form);
+                const { submitBookingRequest } = await import("@/lib/supabase/forms");
+
+                const result = await submitBookingRequest({
+                  data: {
+                    fullName: String(formData.get("name") ?? ""),
+                    email: String(formData.get("email") ?? ""),
+                    phone: String(formData.get("phone") ?? ""),
+                    nationality: String(formData.get("nationality") ?? ""),
+                    airline: String(formData.get("airline") ?? ""),
+                    flightNumber: String(formData.get("flight") ?? ""),
+                    arrivalAirport: String(formData.get("arrival") ?? ""),
+                    departureAirport: String(formData.get("departure") ?? ""),
+                    travelDate: String(formData.get("date") ?? ""),
+                    travelTime: String(formData.get("time") ?? ""),
+                    serviceType: String(formData.get("service") ?? ""),
+                    additionalNotes: String(formData.get("notes") ?? ""),
+                    sourcePath: window.location.pathname,
+                    referrer: document.referrer,
+                  },
+                });
+
+                setSubmitted(result.reference);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              } catch (submissionError) {
+                setError(submissionError instanceof Error ? submissionError.message : "Unable to submit your request.");
+              } finally {
+                setIsSubmitting(false);
+              }
+            }}
             className="space-y-12"
           >
             <Section title="Passenger Information">
@@ -85,7 +119,10 @@ function Booking() {
               </div>
             </Section>
 
-            <button type="submit" className="btn-gold w-full md:w-auto">Confirm Concierge Request</button>
+            {error ? <p className="text-sm text-red-600">{error}</p> : null}
+            <button type="submit" className="btn-gold w-full md:w-auto" disabled={isSubmitting}>
+              {isSubmitting ? "Submitting..." : "Confirm Concierge Request"}
+            </button>
           </form>
         </div>
       </section>

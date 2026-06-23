@@ -3,10 +3,12 @@ import {
   Plane, ShieldCheck, Sparkles, Clock, Briefcase, Globe2,
   ArrowRight, Star, MapPin, Crown
 } from "lucide-react";
+import { useState } from "react";
 import heroImg from "@/assets/hero-arrival.jpg";
 import chauffeurImg from "@/assets/chauffeur.jpg";
 import conciergeImg from "@/assets/concierge.jpg";
 import loungeImg from "@/assets/lounge.jpg";
+import { subscribeNewsletter } from "@/lib/supabase/forms";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -51,6 +53,10 @@ const testimonials = [
 ];
 
 function Home() {
+  const [subscribed, setSubscribed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   return (
     <>
       {/* HERO */}
@@ -270,17 +276,43 @@ function Home() {
             Quarterly insights on premium travel, airport intelligence and the art of arriving well.
           </p>
           <form
-            onSubmit={(e) => { e.preventDefault(); alert("Thank you — you have been subscribed."); }}
+            onSubmit={async (e) => {
+              e.preventDefault();
+              setError(null);
+              setIsSubmitting(true);
+
+              try {
+                const form = e.currentTarget;
+                const formData = new FormData(form);
+                await subscribeNewsletter({
+                  data: {
+                    email: String(formData.get("email") ?? ""),
+                    sourcePath: window.location.pathname,
+                    referrer: document.referrer,
+                  },
+                });
+                setSubscribed(true);
+              } catch (submissionError) {
+                setError(submissionError instanceof Error ? submissionError.message : "Unable to subscribe right now.");
+              } finally {
+                setIsSubmitting(false);
+              }
+            }}
             className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
           >
             <input
+              name="email"
               type="email"
               required
               placeholder="your@email.com"
               className="flex-1 px-5 py-3.5 bg-background border border-border focus:border-[color:var(--gold)] outline-none text-sm"
             />
-            <button type="submit" className="btn-gold !px-6">Subscribe</button>
+            <button type="submit" className="btn-gold !px-6" disabled={isSubmitting}>
+              {isSubmitting ? "Subscribing..." : "Subscribe"}
+            </button>
           </form>
+          {subscribed ? <p className="mt-4 text-sm text-[color:var(--gold)]">You’re on the list.</p> : null}
+          {error ? <p className="mt-4 text-sm text-red-600">{error}</p> : null}
         </div>
       </section>
     </>

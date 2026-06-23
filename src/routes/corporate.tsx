@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { CheckCircle2 } from "lucide-react";
+import { useState } from "react";
 import loungeImg from "@/assets/lounge.jpg";
+import { submitCorporateInquiry } from "@/lib/supabase/forms";
 
 export const Route = createFileRoute("/corporate")({
   head: () => ({
@@ -28,6 +30,10 @@ const features = [
 ];
 
 function Corporate() {
+  const [sent, setSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   return (
     <>
       <PageHero
@@ -72,17 +78,53 @@ function Corporate() {
         <div className="container-luxe max-w-3xl text-center">
           <h2 className="text-3xl md:text-4xl font-display font-semibold">Speak to our Corporate Desk</h2>
           <p className="mt-4 text-white/70">A senior manager will be in touch within one business day.</p>
-          <form
-            onSubmit={(e) => { e.preventDefault(); alert("Thank you. Our team will reach out shortly."); }}
-            className="mt-10 grid gap-4 md:grid-cols-2 text-left"
-          >
-            <input required placeholder="Company" className="bg-white/5 border border-white/10 px-5 py-3.5 outline-none focus:border-[color:var(--gold)]" />
-            <input required placeholder="Full Name" className="bg-white/5 border border-white/10 px-5 py-3.5 outline-none focus:border-[color:var(--gold)]" />
-            <input required type="email" placeholder="Work Email" className="bg-white/5 border border-white/10 px-5 py-3.5 outline-none focus:border-[color:var(--gold)]" />
-            <input required placeholder="Phone" className="bg-white/5 border border-white/10 px-5 py-3.5 outline-none focus:border-[color:var(--gold)]" />
-            <textarea placeholder="Tell us about your requirements" rows={4} className="md:col-span-2 bg-white/5 border border-white/10 px-5 py-3.5 outline-none focus:border-[color:var(--gold)]" />
-            <button type="submit" className="btn-gold md:col-span-2 justify-self-start">Submit Enquiry</button>
-          </form>
+          {sent ? (
+            <div className="mt-10 rounded-none border border-white/10 bg-white/5 p-8 text-left">
+              <p className="eyebrow text-white/70 mb-3">Thank you</p>
+              <p className="text-lg font-display font-semibold">Your corporate enquiry has been received.</p>
+              <p className="mt-2 text-white/70">A senior manager will be in touch shortly.</p>
+            </div>
+          ) : (
+            <form
+              onSubmit={async (e) => {
+                e.preventDefault();
+                setError(null);
+                setIsSubmitting(true);
+
+                try {
+                  const form = e.currentTarget;
+                  const formData = new FormData(form);
+                  await submitCorporateInquiry({
+                    data: {
+                      companyName: String(formData.get("company") ?? ""),
+                      fullName: String(formData.get("name") ?? ""),
+                      email: String(formData.get("email") ?? ""),
+                      phone: String(formData.get("phone") ?? ""),
+                      requirements: String(formData.get("requirements") ?? ""),
+                      sourcePath: window.location.pathname,
+                      referrer: document.referrer,
+                    },
+                  });
+                  setSent(true);
+                } catch (submissionError) {
+                  setError(submissionError instanceof Error ? submissionError.message : "Unable to submit your enquiry.");
+                } finally {
+                  setIsSubmitting(false);
+                }
+              }}
+              className="mt-10 grid gap-4 md:grid-cols-2 text-left"
+            >
+              <input name="company" required placeholder="Company" className="bg-white/5 border border-white/10 px-5 py-3.5 outline-none focus:border-[color:var(--gold)]" />
+              <input name="name" required placeholder="Full Name" className="bg-white/5 border border-white/10 px-5 py-3.5 outline-none focus:border-[color:var(--gold)]" />
+              <input name="email" required type="email" placeholder="Work Email" className="bg-white/5 border border-white/10 px-5 py-3.5 outline-none focus:border-[color:var(--gold)]" />
+              <input name="phone" required placeholder="Phone" className="bg-white/5 border border-white/10 px-5 py-3.5 outline-none focus:border-[color:var(--gold)]" />
+              <textarea name="requirements" placeholder="Tell us about your requirements" rows={4} className="md:col-span-2 bg-white/5 border border-white/10 px-5 py-3.5 outline-none focus:border-[color:var(--gold)]" />
+              {error ? <p className="text-sm text-red-300 md:col-span-2">{error}</p> : null}
+              <button type="submit" className="btn-gold md:col-span-2 justify-self-start" disabled={isSubmitting}>
+                {isSubmitting ? "Submitting..." : "Submit Enquiry"}
+              </button>
+            </form>
+          )}
         </div>
       </section>
     </>

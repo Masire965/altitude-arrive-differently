@@ -1,9 +1,11 @@
 import { MessageCircle } from "lucide-react";
 
 export function WhatsAppButton() {
+  const phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER ?? "254746890852";
+
   return (
     <a
-      href="https://wa.me/254700000000?text=Hello%20Altitude%20Concierge%2C%20I%27d%20like%20to%20enquire%20about%20your%20services."
+      href={`https://wa.me/${phoneNumber}?text=Hello%20Altitude%20Concierge%2C%20I%27d%20like%20to%20enquire%20about%20your%20services.`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="WhatsApp Concierge"

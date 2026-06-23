@@ -18,6 +18,8 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   return (
     <>
       <PageHero
@@ -56,7 +58,37 @@ function Contact() {
                 <p className="mt-4 text-muted-foreground">A senior concierge will respond shortly.</p>
               </div>
             ) : (
-              <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="grid gap-5 md:grid-cols-2">
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  setError(null);
+                  setIsSubmitting(true);
+
+                  try {
+                    const form = e.currentTarget;
+                    const formData = new FormData(form);
+                    const { submitContactInquiry } = await import("@/lib/supabase/forms");
+
+                    await submitContactInquiry({
+                      data: {
+                        fullName: String(formData.get("name") ?? ""),
+                        email: String(formData.get("email") ?? ""),
+                        phone: String(formData.get("phone") ?? ""),
+                        subject: String(formData.get("subject") ?? ""),
+                        message: String(formData.get("message") ?? ""),
+                        sourcePath: window.location.pathname,
+                        referrer: document.referrer,
+                      },
+                    });
+                    setSent(true);
+                  } catch (submissionError) {
+                    setError(submissionError instanceof Error ? submissionError.message : "Unable to send your message.");
+                  } finally {
+                    setIsSubmitting(false);
+                  }
+                }}
+                className="grid gap-5 md:grid-cols-2"
+              >
                 <Field label="Name" name="name" required />
                 <Field label="Email" name="email" type="email" required />
                 <Field label="Phone" name="phone" />
@@ -65,7 +97,10 @@ function Contact() {
                   <label className="block text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2 font-display">Message *</label>
                   <textarea name="message" rows={6} required className="w-full bg-background border border-border focus:border-[color:var(--gold)] outline-none px-4 py-3" />
                 </div>
-                <button type="submit" className="btn-gold md:col-span-2 justify-self-start">Send Message</button>
+                {error ? <p className="text-sm text-red-600 md:col-span-2">{error}</p> : null}
+                <button type="submit" className="btn-gold md:col-span-2 justify-self-start" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </button>
               </form>
             )}
           </div>
