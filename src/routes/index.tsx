@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Plane, ShieldCheck, Sparkles, Clock, Briefcase, Globe2,
-  ArrowRight, Star, MapPin, Car, Crown, Users
+  ArrowRight, Star, MapPin, Crown
 } from "lucide-react";
 import heroImg from "@/assets/hero-arrival.jpg";
 import chauffeurImg from "@/assets/chauffeur.jpg";
