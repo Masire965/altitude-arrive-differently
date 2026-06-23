@@ -1,0 +1,1 @@
+var e=`/assets/chauffeur-CJ3CkTj7.jpg`;export{e as t};
