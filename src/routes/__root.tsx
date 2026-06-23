@@ -68,6 +68,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Premium airport meet & assist, concierge and executive travel support across Kenya, Ghana & Nigeria." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Altitude Concierge Services — Arrive Differently" },
+      { name: "twitter:description", content: "Premium airport meet & assist, concierge and executive travel support across Kenya, Ghana & Nigeria." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/bc494861-eed1-4035-8247-59ffc3853380/id-preview-245c0047--4e4b42ad-f643-4e5e-89c6-7cc3bbbd18af.lovable.app-1782190263730.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/bc494861-eed1-4035-8247-59ffc3853380/id-preview-245c0047--4e4b42ad-f643-4e5e-89c6-7cc3bbbd18af.lovable.app-1782190263730.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
