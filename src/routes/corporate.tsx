@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { CheckCircle2 } from "lucide-react";
 import { useState } from "react";
-import groupImg from "@/assets/show around.png";
+import groupImg from "@/assets/corporate-services.png";
 import { submitCorporateInquiry } from "@/lib/supabase/forms";
 
 export const Route = createFileRoute("/corporate")({

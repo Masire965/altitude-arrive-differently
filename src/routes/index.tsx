@@ -17,8 +17,8 @@ import meetGreetImg from "@/assets/Welcome to lagos.png";
 import guideImg from "@/assets/show around.png";
 import airportImg from "@/assets/Arrivees.png";
 import transferImg from "@/assets/chauffer.png";
-import conciergeImg from "@/assets/Welcome to lagos.png";
-import corporateImg from "@/assets/show around.png";
+import conciergeImg from "@/assets/concierge-services.png";
+import corporateImg from "@/assets/corporate-services.png";
 import { subscribeNewsletter } from "@/lib/supabase/forms";
 
 export const Route = createFileRoute("/")({

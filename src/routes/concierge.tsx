@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { Utensils, Hotel, Calendar, Sparkles, MapPin, UserCheck } from "lucide-react";
-import conciergeImg from "@/assets/Welcome to lagos.png";
+import conciergeImg from "@/assets/concierge-services.png";
 
 export const Route = createFileRoute("/concierge")({
   head: () => ({
