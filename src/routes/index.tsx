@@ -1,43 +1,54 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Plane, ShieldCheck, Sparkles, Clock, Briefcase, Globe2,
-  ArrowRight, Star, MapPin, Crown
+  Plane,
+  ShieldCheck,
+  Sparkles,
+  Clock,
+  Briefcase,
+  Globe2,
+  ArrowRight,
+  Star,
+  MapPin,
+  HeartHandshake,
 } from "lucide-react";
 import { useState } from "react";
-import heroImg from "@/assets/hero-arrival.jpg";
-import chauffeurImg from "@/assets/chauffeur.jpg";
-import conciergeImg from "@/assets/concierge.jpg";
-import loungeImg from "@/assets/lounge.jpg";
+import heroImg from "@/assets/ARRIVAL IMG.png";
+import meetGreetImg from "@/assets/Welcome to lagos.png";
+import guideImg from "@/assets/show around.png";
+import airportImg from "@/assets/Arrivees.png";
+import transferImg from "@/assets/chauffer.png";
+import conciergeImg from "@/assets/Welcome to lagos.png";
+import corporateImg from "@/assets/show around.png";
 import { subscribeNewsletter } from "@/lib/supabase/forms";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Altitude Concierge Services — Arrive Differently | Kenya · Ghana · Nigeria" },
-      { name: "description", content: "Premium VIP airport meet & assist, fast-track protocol, chauffeur transfers and concierge services across Nairobi, Accra and Lagos." },
-      { property: "og:title", content: "Altitude Concierge Services — Arrive Differently" },
-      { property: "og:description", content: "Premium VIP airport meet & assist, fast-track protocol and concierge services across Kenya, Ghana & Nigeria." },
+      { title: "Altitude Concierge Services - Safe Airport Meet & Assist | Kenya, Ghana, Nigeria" },
+      { name: "description", content: "Safe, friendly airport meet & assist, guided arrivals, family support and reliable transfers across Nairobi, Accra and Lagos." },
+      { property: "og:title", content: "Altitude Concierge Services - Safe Airport Meet & Assist" },
+      { property: "og:description", content: "Friendly airport meet & assist and reliable travel support across Kenya, Ghana and Nigeria." },
     ],
   }),
   component: Home,
 });
 
 const benefits = [
-  { icon: Crown, title: "VIP Treatment", desc: "Discreet, white-glove service from kerb to gate." },
-  { icon: Plane, title: "Airport Fast Track", desc: "Expedited immigration, security and customs clearance." },
-  { icon: Briefcase, title: "Executive Travel", desc: "Tailored support for diplomats, executives and HNW travellers." },
-  { icon: Clock, title: "24/7 Concierge Desk", desc: "Always-on assistance across every time zone." },
-  { icon: ShieldCheck, title: "Corporate Solutions", desc: "Dedicated managers, monthly billing, full reporting." },
-  { icon: Globe2, title: "Multi-Country Coverage", desc: "Seamless service across Kenya, Ghana and Nigeria." },
+  { icon: HeartHandshake, title: "A Friendly Welcome", desc: "A trained officer meets you at the airport and stays with you through each step." },
+  { icon: ShieldCheck, title: "Safety First", desc: "Clear communication, visible identification and careful handover to your next point." },
+  { icon: Plane, title: "Airport Guidance", desc: "Help with arrivals, departures, transit, baggage and airport directions." },
+  { icon: Clock, title: "Here When You Land", desc: "Flight monitoring and support for delays, early arrivals and late-night travel." },
+  { icon: Briefcase, title: "For Everyday Travel", desc: "Support for solo travellers, families, first-time visitors and business trips." },
+  { icon: Globe2, title: "Regional Coverage", desc: "Reliable service across Kenya, Ghana and Nigeria." },
 ];
 
 const services = [
-  { title: "Airport Meet & Assist", desc: "Arrival, departure and transit support with personal protocol officers.", to: "/meet-and-assist", img: heroImg },
-  { title: "Concierge Services", desc: "Reservations, bookings, lifestyle and personal assistance.", to: "/concierge", img: conciergeImg },
-  { title: "Chauffeur & Transfers", desc: "Executive vehicles, professional chauffeurs, on-demand luxury.", to: "/chauffeur", img: chauffeurImg },
-  { title: "Corporate Services", desc: "Account-managed travel programs for organisations and embassies.", to: "/corporate", img: loungeImg },
-  { title: "Airport Protocol", desc: "VIP lanes, lounge access and dedicated coordinators.", to: "/services", img: loungeImg },
-  { title: "Event Delegation Support", desc: "End-to-end handling for delegations, summits and special events.", to: "/corporate", img: conciergeImg },
+  { title: "Airport Meet & Assist", desc: "Arrival, departure and transit support with a friendly airport officer.", to: "/meet-and-assist", img: meetGreetImg },
+  { title: "Concierge Services", desc: "Reservations, bookings, travel coordination and personal assistance.", to: "/concierge", img: conciergeImg },
+  { title: "Airport Transfers", desc: "Reliable private transfers with professional drivers and clear pick-up details.", to: "/chauffeur", img: transferImg },
+  { title: "Corporate Services", desc: "Account-managed travel programs for organisations, teams and embassies.", to: "/corporate", img: corporateImg },
+  { title: "Airport Guidance", desc: "Step-by-step help through the terminal, from baggage to onward transport.", to: "/services", img: guideImg },
+  { title: "Group & Family Support", desc: "Calm, organised handling for families, teams, guests and special arrivals.", to: "/corporate", img: airportImg },
 ];
 
 const airports = [
@@ -47,9 +58,9 @@ const airports = [
 ];
 
 const testimonials = [
-  { name: "H.E. Aminata Diallo", role: "Diplomatic Mission", quote: "From the moment I landed in Nairobi until my departure, every detail was handled with grace. Truly world-class." },
-  { name: "James Okafor", role: "CEO, Meridian Capital", quote: "Altitude has become our standard for executive travel across West Africa. Reliability and discretion in equal measure." },
-  { name: "Sofia Rahman", role: "International Counsel", quote: "I have used premium services in 40+ countries. ACS is among the very best — unobtrusive, exact, exceptional." },
+  { name: "Amara Okafor", role: "Solo Traveller", quote: "I felt calm as soon as I saw my name at arrivals. The officer stayed with me until my driver arrived." },
+  { name: "Daniel Mensah", role: "Frequent Traveller", quote: "Simple, clear and reliable. They made a busy airport feel manageable after a long flight." },
+  { name: "Njeri W.", role: "Family Trip", quote: "Travelling with children was much easier. We had someone kind guiding us through each step." },
 ];
 
 function Home() {
@@ -59,11 +70,10 @@ function Home() {
 
   return (
     <>
-      {/* HERO */}
       <section className="relative min-h-[100svh] flex items-center overflow-hidden">
         <img
           src={heroImg}
-          alt="Luxury airport arrival"
+          alt="Smiling Black woman arriving safely at a busy African airport"
           className="absolute inset-0 h-full w-full object-cover"
           width={1920}
           height={1280}
@@ -75,26 +85,26 @@ function Home() {
           <div className="max-w-3xl animate-fade-up">
             <div className="flex items-center gap-3 mb-8">
               <span className="gold-rule" />
-              <p className="eyebrow !text-white/80">Premium Airport Concierge · Est. Africa</p>
+              <p className="eyebrow !text-white/80">Safe Airport Meet &amp; Assist</p>
             </div>
             <h1 className="text-white text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-display font-semibold leading-[0.98] tracking-tight">
               Arrive<br />
-              <span className="italic font-light text-[color:var(--gold)]">Differently.</span>
+              <span className="italic font-light text-[color:var(--gold)]">Safely.</span>
             </h1>
             <p className="mt-8 text-lg md:text-xl text-white/75 max-w-2xl leading-relaxed font-light">
-              Premium airport meet &amp; assist, concierge and executive travel support across
-              Kenya, Ghana &amp; Nigeria — tailored for diplomats, executives and the discerning traveller.
+              Friendly airport meet &amp; assist and reliable travel support across Kenya, Ghana
+              and Nigeria, made for everyday travellers who want to feel safe and looked after.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link to="/booking" className="btn-gold">Book Meet &amp; Assist</Link>
-              <Link to="/contact" className="btn-outline-light">Request Quote</Link>
+              <Link to="/contact" className="btn-outline-light">Talk to Us</Link>
             </div>
 
             <div className="mt-16 flex flex-wrap gap-x-12 gap-y-6 text-white/70">
               {[
                 { v: "3", l: "Countries" },
-                { v: "24/7", l: "Concierge Desk" },
-                { v: "100%", l: "Discretion" },
+                { v: "24/7", l: "Travel Support" },
+                { v: "Safe", l: "Meet & Greet" },
               ].map((s) => (
                 <div key={s.l}>
                   <div className="font-display text-3xl text-[color:var(--gold)] font-semibold">{s.v}</div>
@@ -104,13 +114,8 @@ function Home() {
             </div>
           </div>
         </div>
-
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 text-xs uppercase tracking-[0.3em] animate-shimmer">
-          Scroll
-        </div>
       </section>
 
-      {/* WHY ACS */}
       <section className="py-24 md:py-32">
         <div className="container-luxe">
           <div className="max-w-2xl mb-16">
@@ -118,10 +123,11 @@ function Home() {
               <span className="gold-rule" /><p className="eyebrow">Why Altitude</p>
             </div>
             <h2 className="text-4xl md:text-5xl font-display font-semibold leading-tight">
-              Travel, refined to the smallest detail.
+              Travel support that feels calm, clear and safe.
             </h2>
             <p className="mt-5 text-muted-foreground text-lg leading-relaxed">
-              We exist for travellers for whom time, privacy and presentation are non-negotiable.
+              We help everyday travellers move through busy airports with confidence, especially
+              solo travellers, women, families and first-time visitors.
             </p>
           </div>
 
@@ -139,7 +145,6 @@ function Home() {
         </div>
       </section>
 
-      {/* FEATURED SERVICES */}
       <section className="py-24 md:py-32 bg-[color:var(--navy)] text-white">
         <div className="container-luxe">
           <div className="flex items-end justify-between flex-wrap gap-6 mb-16">
@@ -148,7 +153,7 @@ function Home() {
                 <span className="gold-rule" /><p className="eyebrow">Featured Services</p>
               </div>
               <h2 className="text-4xl md:text-5xl font-display font-semibold leading-tight">
-                A complete suite of premium services.
+                Practical help for the moments that matter.
               </h2>
             </div>
             <Link to="/services" className="link-gold">View all services <ArrowRight size={16} /></Link>
@@ -170,7 +175,6 @@ function Home() {
         </div>
       </section>
 
-      {/* COVERAGE */}
       <section className="py-24 md:py-32">
         <div className="container-luxe grid lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -178,11 +182,11 @@ function Home() {
               <span className="gold-rule" /><p className="eyebrow">Countries Covered</p>
             </div>
             <h2 className="text-4xl md:text-5xl font-display font-semibold leading-tight">
-              Three nations.<br />One standard of service.
+              Three nations.<br />One standard of care.
             </h2>
             <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
-              Wherever your journey takes you across our network, you can expect the same uncompromising
-              level of care from our trained protocol officers.
+              Wherever your journey takes you across our network, you can expect warm guidance,
+              clear communication and trained airport officers who stay close.
             </p>
 
             <div className="mt-10 space-y-px bg-border border border-border">
@@ -202,25 +206,24 @@ function Home() {
           </div>
 
           <div className="relative h-[600px]">
-            <img src={loungeImg} alt="Luxury airport lounge" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+            <img src={airportImg} alt="Busy African airport arrivals terminal" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-tr from-[color:var(--navy)]/40 to-transparent" />
             <div className="absolute bottom-8 left-8 right-8 glass-dark p-6 text-white">
-              <p className="eyebrow !text-[color:var(--gold)]">Hub Network</p>
-              <p className="mt-2 font-display text-xl">Nairobi · Accra · Lagos</p>
+              <p className="eyebrow !text-[color:var(--gold)]">Airport Network</p>
+              <p className="mt-2 font-display text-xl">Nairobi, Accra, Lagos</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
       <section className="py-24 md:py-32 bg-secondary">
         <div className="container-luxe">
           <div className="max-w-2xl mx-auto text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-5">
-              <span className="gold-rule" /><p className="eyebrow">Clientele</p><span className="gold-rule" />
+              <span className="gold-rule" /><p className="eyebrow">Traveller Stories</p><span className="gold-rule" />
             </div>
             <h2 className="text-4xl md:text-5xl font-display font-semibold">
-              Trusted by those who travel often.
+              Trusted by people who want a smoother arrival.
             </h2>
           </div>
 
@@ -245,20 +248,19 @@ function Home() {
         </div>
       </section>
 
-      {/* CORPORATE CTA */}
       <section className="py-24 md:py-32 relative overflow-hidden bg-[color:var(--navy)] text-white">
-        <img src={chauffeurImg} alt="" className="absolute inset-0 h-full w-full object-cover opacity-25" loading="lazy" />
+        <img src={guideImg} alt="" className="absolute inset-0 h-full w-full object-cover opacity-25" loading="lazy" />
         <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--navy)] via-[color:var(--navy)]/80 to-[color:var(--navy)]/30" />
         <div className="container-luxe relative z-10 max-w-3xl">
           <div className="flex items-center gap-3 mb-5">
             <span className="gold-rule" /><p className="eyebrow !text-white/70">Corporate Accounts</p>
           </div>
           <h2 className="text-4xl md:text-5xl font-display font-semibold leading-tight">
-            Built for organisations who move executives — and care how they arrive.
+            Built for organisations that want guests to arrive safely and calmly.
           </h2>
           <p className="mt-6 text-white/70 text-lg leading-relaxed">
-            Dedicated account managers, consolidated monthly billing, priority bookings and
-            tailored reporting — designed for corporations, embassies, NGOs and event organisers.
+            Dedicated coordinators, consolidated monthly billing, priority bookings and clear
+            reporting for corporations, embassies, NGOs and event organisers.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link to="/corporate" className="btn-gold">Open a Corporate Account</Link>
@@ -267,13 +269,12 @@ function Home() {
         </div>
       </section>
 
-      {/* NEWSLETTER */}
       <section className="py-24 bg-background">
         <div className="container-luxe max-w-2xl text-center">
           <Sparkles className="text-[color:var(--gold)] mx-auto mb-5" size={28} strokeWidth={1.2} />
           <h2 className="text-3xl md:text-4xl font-display font-semibold">The Altitude Letter</h2>
           <p className="mt-3 text-muted-foreground">
-            Quarterly insights on premium travel, airport intelligence and the art of arriving well.
+            Practical airport tips, safety notes and travel updates across our African network.
           </p>
           <form
             onSubmit={async (e) => {
@@ -311,7 +312,7 @@ function Home() {
               {isSubmitting ? "Subscribing..." : "Subscribe"}
             </button>
           </form>
-          {subscribed ? <p className="mt-4 text-sm text-[color:var(--gold)]">You’re on the list.</p> : null}
+          {subscribed ? <p className="mt-4 text-sm text-[color:var(--gold)]">You're on the list.</p> : null}
           {error ? <p className="mt-4 text-sm text-red-600">{error}</p> : null}
         </div>
       </section>

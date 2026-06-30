@@ -1,27 +1,27 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { Utensils, Hotel, Calendar, Sparkles, MapPin, UserCheck } from "lucide-react";
-import conciergeImg from "@/assets/concierge.jpg";
+import conciergeImg from "@/assets/Welcome to lagos.png";
 
 export const Route = createFileRoute("/concierge")({
   head: () => ({
     meta: [
-      { title: "Concierge Services — ACS" },
-      { name: "description", content: "Restaurant reservations, hotel bookings, event planning, VIP experiences and personal assistance." },
-      { property: "og:title", content: "Concierge Services — Altitude Concierge" },
-      { property: "og:description", content: "Lifestyle concierge and personal assistance across Kenya, Ghana and Nigeria." },
+      { title: "Concierge Services - ACS" },
+      { name: "description", content: "Restaurant reservations, hotel bookings, event planning, local recommendations and personal assistance." },
+      { property: "og:title", content: "Concierge Services - Altitude Concierge" },
+      { property: "og:description", content: "Helpful concierge and personal assistance across Kenya, Ghana and Nigeria." },
     ],
   }),
   component: Concierge,
 });
 
 const items = [
-  { icon: Utensils, title: "Restaurant Reservations", desc: "Tables at sought-after establishments — even when fully booked." },
-  { icon: Hotel, title: "Hotel Bookings", desc: "Preferred rates and upgrades at premium properties." },
-  { icon: MapPin, title: "Travel Coordination", desc: "End-to-end itinerary planning and logistics." },
-  { icon: Calendar, title: "Event Planning Support", desc: "From intimate dinners to corporate gatherings." },
-  { icon: Sparkles, title: "VIP Experiences", desc: "Curated cultural, culinary and bespoke experiences." },
-  { icon: UserCheck, title: "Personal Assistance", desc: "Discreet, on-demand support for any request." },
+  { icon: Utensils, title: "Restaurant Reservations", desc: "Tables that fit your plans, budget and location." },
+  { icon: Hotel, title: "Hotel Bookings", desc: "Trusted hotel options and clear booking support." },
+  { icon: MapPin, title: "Travel Coordination", desc: "Itinerary planning, directions and local movement support." },
+  { icon: Calendar, title: "Event Planning Support", desc: "Help coordinating dinners, meetings and group plans." },
+  { icon: Sparkles, title: "Local Experiences", desc: "Curated cultural, culinary and city experiences." },
+  { icon: UserCheck, title: "Personal Assistance", desc: "Practical, respectful support for everyday requests." },
 ];
 
 function Concierge() {
@@ -29,8 +29,8 @@ function Concierge() {
     <>
       <PageHero
         eyebrow="Concierge"
-        title="The art of getting things done — quietly."
-        subtitle="From a last-minute reservation to a fully orchestrated week, our concierge desk is at your service."
+        title="Helpful support when plans need care."
+        subtitle="From a reservation to a full travel day, our team helps you move with clarity and confidence."
         image={conciergeImg}
       >
         <Link to="/contact" className="btn-gold">Request a Service</Link>

@@ -1,0 +1,1 @@
+var e=`/assets/chauffer-BG9SqDUl.png`;export{e as t};

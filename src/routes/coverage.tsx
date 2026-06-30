@@ -1,15 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
-import { Plane, MapPin } from "lucide-react";
-import airportImg from "@/assets/airport-aerial.jpg";
+import { Plane } from "lucide-react";
+import airportImg from "@/assets/Arrivees.png";
 
 export const Route = createFileRoute("/coverage")({
   head: () => ({
     meta: [
-      { title: "Airport Coverage — Kenya, Ghana, Nigeria | ACS" },
-      { name: "description", content: "Premium airport concierge services in Nairobi (NBO), Accra (ACC) and Lagos (LOS)." },
-      { property: "og:title", content: "Airport Coverage — Altitude Concierge" },
-      { property: "og:description", content: "Nairobi, Accra and Lagos — premium meet & assist coverage." },
+      { title: "Airport Coverage - Kenya, Ghana, Nigeria | ACS" },
+      { name: "description", content: "Safe airport meet & assist services in Nairobi (NBO), Accra (ACC) and Lagos (LOS)." },
+      { property: "og:title", content: "Airport Coverage - Altitude Concierge" },
+      { property: "og:description", content: "Nairobi, Accra and Lagos airport meet & assist coverage." },
     ],
   }),
   component: Coverage,
@@ -21,24 +21,24 @@ const countries = [
     flag: "KE",
     airport: "Jomo Kenyatta International Airport (NBO)",
     city: "Nairobi",
-    blurb: "Premium meet & assist, fast-track immigration and chauffeur services at Kenya's largest international gateway — serving East Africa's commercial capital.",
-    keywords: ["Airport Meet and Assist Nairobi", "Nairobi Airport Concierge", "VIP Airport Services Kenya"],
+    blurb: "Meet & assist, guided arrivals and reliable transfers at Kenya's largest international gateway.",
+    keywords: ["Airport Meet and Assist Nairobi", "Nairobi Airport Concierge", "Safe Airport Support Kenya"],
   },
   {
     country: "Ghana",
     flag: "GH",
     airport: "Kotoka International Airport (ACC)",
     city: "Accra",
-    blurb: "VIP concierge handling at West Africa's most welcoming hub — protocol services, fast track and executive transfers tailored to diplomatic and corporate travellers.",
-    keywords: ["Airport Concierge Accra", "Airport Concierge Ghana", "VIP Airport Services Ghana"],
+    blurb: "Friendly airport guidance, family support and transfer coordination at one of West Africa's most welcoming hubs.",
+    keywords: ["Airport Concierge Accra", "Airport Concierge Ghana", "Airport Meet and Assist Ghana"],
   },
   {
     country: "Nigeria",
     flag: "NG",
     airport: "Murtala Muhammed International Airport (LOS)",
     city: "Lagos",
-    blurb: "Reliable, discreet concierge support at one of Africa's busiest airports — designed to remove the friction from arrival and departure in Lagos.",
-    keywords: ["Airport Concierge Lagos", "Airport Concierge Nigeria", "VIP Airport Services Nigeria"],
+    blurb: "Reliable airport support in one of Africa's busiest airports, designed to make arrivals and departures feel safer.",
+    keywords: ["Airport Concierge Lagos", "Airport Concierge Nigeria", "Airport Meet and Assist Lagos"],
   },
 ];
 
@@ -47,8 +47,8 @@ function Coverage() {
     <>
       <PageHero
         eyebrow="Coverage"
-        title="Three nations. One uncompromising standard."
-        subtitle="Operating across East and West Africa's most important international gateways."
+        title="Three countries. One careful welcome."
+        subtitle="Operating across East and West Africa's important international gateways."
         image={airportImg}
       />
 

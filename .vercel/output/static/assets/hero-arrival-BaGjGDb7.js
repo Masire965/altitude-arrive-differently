@@ -1,1 +1,0 @@
-var e=`/assets/hero-arrival-BfS_GTyo.jpg`;export{e as t};

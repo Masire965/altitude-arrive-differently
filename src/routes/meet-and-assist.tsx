@@ -1,27 +1,27 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
-import { Plane, PlaneLanding, PlaneTakeoff, Repeat, Crown, Users, Shield } from "lucide-react";
-import heroImg from "@/assets/hero-arrival.jpg";
+import { PlaneLanding, PlaneTakeoff, Repeat, Users, Shield, Handshake } from "lucide-react";
+import heroImg from "@/assets/Welcome to lagos.png";
 
 export const Route = createFileRoute("/meet-and-assist")({
   head: () => ({
     meta: [
-      { title: "Airport Meet & Assist — VIP Fast Track | ACS" },
-      { name: "description", content: "Arrival, departure and transit assistance with VIP fast track immigration across Nairobi, Accra and Lagos airports." },
-      { property: "og:title", content: "Airport Meet & Assist — Altitude Concierge" },
-      { property: "og:description", content: "VIP arrival, departure, transit and fast track services across Kenya, Ghana and Nigeria." },
+      { title: "Airport Meet & Assist - Safe Arrival Support | ACS" },
+      { name: "description", content: "Safe arrival, departure and transit assistance across Nairobi, Accra and Lagos airports." },
+      { property: "og:title", content: "Airport Meet & Assist - Altitude Concierge" },
+      { property: "og:description", content: "Friendly airport arrival, departure and transit support across Kenya, Ghana and Nigeria." },
     ],
   }),
   component: MeetAssist,
 });
 
 const items = [
-  { icon: PlaneLanding, title: "Arrival Assistance", desc: "We greet you at the aircraft door, escort you through priority immigration, collect your baggage and guide you to your transport." },
-  { icon: PlaneTakeoff, title: "Departure Assistance", desc: "Curbside greeting, expedited check-in, fast track security and personal escort to the lounge or gate." },
-  { icon: Repeat, title: "Transit Assistance", desc: "Seamless connection handling, lounge access during layovers and gate-to-gate escort." },
-  { icon: Crown, title: "VIP Fast Track", desc: "Skip the queues. Fast lane immigration and security at every step of your journey." },
-  { icon: Users, title: "Family Travel Support", desc: "Dedicated assistance for families travelling with children, elderly or special requirements." },
-  { icon: Shield, title: "Diplomatic Assistance", desc: "Protocol-level handling for diplomatic, governmental and high-profile travellers." },
+  { icon: PlaneLanding, title: "Arrival Assistance", desc: "Your officer meets you at arrivals, helps with baggage and guides you to your driver or host." },
+  { icon: PlaneTakeoff, title: "Departure Assistance", desc: "Clear guidance from terminal entrance through check-in, security and the right gate." },
+  { icon: Repeat, title: "Transit Assistance", desc: "Support between flights so connections feel calm, clear and on time." },
+  { icon: Handshake, title: "Meet & Greet", desc: "A visible, friendly welcome with your name or a placard so you know exactly who is there for you." },
+  { icon: Users, title: "Family Travel Support", desc: "Dedicated assistance for families travelling with children, elderly travellers or special requirements." },
+  { icon: Shield, title: "Solo Traveller Support", desc: "Extra reassurance for anyone arriving alone, with careful handover to the next trusted contact." },
 ];
 
 function MeetAssist() {
@@ -29,8 +29,8 @@ function MeetAssist() {
     <>
       <PageHero
         eyebrow="Meet & Assist"
-        title="The terminal, made effortless."
-        subtitle="Our protocol officers handle every checkpoint so you can focus on what matters."
+        title="A safer, calmer airport arrival."
+        subtitle="Our airport officers welcome you, guide you through the terminal and stay with you until the next step is clear."
         image={heroImg}
       >
         <Link to="/booking" className="btn-gold">Book Meet & Assist</Link>
@@ -50,7 +50,7 @@ function MeetAssist() {
 
       <section className="py-20 bg-secondary text-center">
         <div className="container-luxe max-w-2xl">
-          <h2 className="text-3xl md:text-4xl font-display font-semibold">Reserve your concierge officer</h2>
+          <h2 className="text-3xl md:text-4xl font-display font-semibold">Reserve your airport officer</h2>
           <p className="mt-4 text-muted-foreground">Available 24/7 across NBO, ACC and LOS.</p>
           <Link to="/booking" className="btn-gold mt-8">Make a Booking</Link>
         </div>

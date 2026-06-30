@@ -1,15 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { ArrowRight } from "lucide-react";
-import heroImg from "@/assets/hero-arrival.jpg";
+import heroImg from "@/assets/show around.png";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Altitude Concierge Services" },
-      { name: "description", content: "Airport meet & assist, fast track, concierge, chauffeur, corporate travel and executive support across Kenya, Ghana and Nigeria." },
-      { property: "og:title", content: "Services — Altitude Concierge Services" },
-      { property: "og:description", content: "A complete suite of premium airport and concierge services." },
+      { title: "Services - Airport Meet & Assist | Altitude Concierge Services" },
+      { name: "description", content: "Airport meet & assist, safe arrivals, guided departures, transfers, family support and corporate travel help across Kenya, Ghana and Nigeria." },
+      { property: "og:title", content: "Services - Altitude Concierge Services" },
+      { property: "og:description", content: "Safe, friendly airport and travel support across Kenya, Ghana and Nigeria." },
     ],
   }),
   component: ServicesPage,
@@ -18,12 +18,12 @@ export const Route = createFileRoute("/services")({
 const groups = [
   {
     title: "Airport Meet & Assist",
-    items: ["Arrival Assistance", "Departure Assistance", "Transit Assistance", "VIP Fast Track"],
+    items: ["Arrival Assistance", "Departure Assistance", "Transit Assistance", "Meet & Greet"],
     to: "/meet-and-assist",
   },
   {
-    title: "Airport Protocol",
-    items: ["Diplomatic Protocol", "VIP Lane Access", "Lounge Coordination", "Family Travel Support"],
+    title: "Safe Airport Guidance",
+    items: ["Terminal Directions", "Baggage Support", "Driver Handover", "Family Travel Support"],
     to: "/meet-and-assist",
   },
   {
@@ -33,17 +33,17 @@ const groups = [
   },
   {
     title: "Corporate Travel Support",
-    items: ["Corporate Accounts", "Executive Travel Mgmt", "Monthly Billing", "Dedicated Concierge Managers"],
+    items: ["Corporate Accounts", "Guest Arrivals", "Monthly Billing", "Dedicated Coordinators"],
     to: "/corporate",
   },
   {
-    title: "Chauffeur Services",
-    items: ["Executive Transfers", "Airport Transfers", "Hotel Transfers", "Event Transportation"],
+    title: "Airport Transfers",
+    items: ["Private Transfers", "Airport Pick-up", "Hotel Transfers", "Event Transportation"],
     to: "/chauffeur",
   },
   {
-    title: "Event Guest Management",
-    items: ["Delegation Handling", "Summit Coordination", "Group Transfers", "On-site Concierge"],
+    title: "Group & Guest Support",
+    items: ["Delegation Handling", "Event Arrivals", "Group Transfers", "On-site Coordination"],
     to: "/corporate",
   },
 ];
@@ -53,8 +53,8 @@ function ServicesPage() {
     <>
       <PageHero
         eyebrow="Services"
-        title="Every detail. Every journey. Considered."
-        subtitle="From the moment you confirm your itinerary to the moment you step into your destination — Altitude orchestrates every detail."
+        title="Clear help from landing to handover."
+        subtitle="From the moment you share your itinerary, our team prepares the welcome, guidance and transfer details that make travel feel safer."
         image={heroImg}
       />
 
@@ -80,7 +80,7 @@ function ServicesPage() {
       <section className="py-20 bg-[color:var(--navy)] text-white text-center">
         <div className="container-luxe max-w-2xl">
           <h2 className="text-3xl md:text-4xl font-display font-semibold">Ready to book?</h2>
-          <p className="mt-4 text-white/70">Complete a concierge request in under two minutes.</p>
+          <p className="mt-4 text-white/70">Send your travel details in under two minutes.</p>
           <Link to="/booking" className="btn-gold mt-8">Book Now</Link>
         </div>
       </section>

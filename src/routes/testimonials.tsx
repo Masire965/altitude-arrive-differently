@@ -1,27 +1,27 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { Star, Quote } from "lucide-react";
-import conciergeImg from "@/assets/concierge.jpg";
+import storyImg from "@/assets/ARRIVAL IMG.png";
 
 export const Route = createFileRoute("/testimonials")({
   head: () => ({
     meta: [
-      { title: "Testimonials — Altitude Concierge" },
-      { name: "description", content: "What diplomats, executives and frequent travellers say about Altitude Concierge Services." },
-      { property: "og:title", content: "Testimonials — ACS Clients" },
-      { property: "og:description", content: "Reviews from diplomats, CEOs and high-net-worth travellers." },
+      { title: "Testimonials - Altitude Concierge" },
+      { name: "description", content: "What solo travellers, families and frequent travellers say about Altitude Concierge Services." },
+      { property: "og:title", content: "Testimonials - ACS Travellers" },
+      { property: "og:description", content: "Reviews from travellers who use airport meet & assist and transfer support." },
     ],
   }),
   component: Testimonials,
 });
 
 const t = [
-  { name: "H.E. Aminata Diallo", role: "Diplomatic Mission", co: "Permanent Mission", q: "From the moment I landed in Nairobi until my departure, every detail was handled with grace. Truly world-class service." },
-  { name: "James Okafor", role: "CEO", co: "Meridian Capital", q: "Altitude has become our standard for executive travel across West Africa. Reliability and discretion in equal measure." },
-  { name: "Sofia Rahman", role: "International Counsel", co: "Bennett & Vale LLP", q: "I have used premium services in 40+ countries. ACS is among the very best — unobtrusive, exact, exceptional." },
-  { name: "Dr. Kwame Mensah", role: "Board Chair", co: "Pan-African Health Initiative", q: "Our delegation moved through three cities in five days without a single hiccup. That is rare anywhere in the world." },
-  { name: "Ana Costa", role: "Managing Partner", co: "Atlantic Ventures", q: "The chauffeur arrived three minutes early, every single time. That, alone, is worth it." },
-  { name: "Tariq Hassan", role: "Family Office", co: "Private", q: "We trust them with our family. There is no higher compliment we can pay." },
+  { name: "Amara Okafor", role: "Solo Traveller", co: "Lagos Arrival", q: "I felt calm as soon as I saw my name at arrivals. The officer stayed with me until my driver arrived." },
+  { name: "Njeri W.", role: "Parent", co: "Family Trip", q: "Travelling with children was much easier. We had someone kind guiding us through each step." },
+  { name: "Daniel Mensah", role: "Frequent Traveller", co: "Business Trip", q: "Simple, clear and reliable. They made a busy airport feel manageable after a long flight." },
+  { name: "Aisha B.", role: "First-time Visitor", co: "Accra Arrival", q: "I knew exactly who was meeting me and where I was going next. That made all the difference." },
+  { name: "Kofi A.", role: "Event Guest", co: "Group Travel", q: "Our group was received and directed quickly. It felt organised without being stressful." },
+  { name: "Miriam S.", role: "Solo Traveller", co: "Nairobi Arrival", q: "The WhatsApp updates and airport handover helped me feel safe from landing to pick-up." },
 ];
 
 function Testimonials() {
@@ -29,8 +29,8 @@ function Testimonials() {
     <>
       <PageHero
         eyebrow="Testimonials"
-        title="In the words of those we serve."
-        image={conciergeImg}
+        title="In the words of travellers we support."
+        image={storyImg}
       />
       <section className="py-24">
         <div className="container-luxe grid gap-8 md:grid-cols-2">

@@ -2,16 +2,16 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { CheckCircle2 } from "lucide-react";
 import { useState } from "react";
-import loungeImg from "@/assets/lounge.jpg";
+import groupImg from "@/assets/show around.png";
 import { submitCorporateInquiry } from "@/lib/supabase/forms";
 
 export const Route = createFileRoute("/corporate")({
   head: () => ({
     meta: [
-      { title: "Corporate Services & Accounts — ACS" },
-      { name: "description", content: "Corporate travel management, dedicated concierge managers and monthly billing for corporations, embassies and NGOs." },
-      { property: "og:title", content: "Corporate Services — Altitude Concierge" },
-      { property: "og:description", content: "Account-managed premium travel programs across Kenya, Ghana and Nigeria." },
+      { title: "Corporate Services & Accounts - ACS" },
+      { name: "description", content: "Corporate travel support, guest arrivals, dedicated coordinators and monthly billing for corporations, embassies and NGOs." },
+      { property: "og:title", content: "Corporate Services - Altitude Concierge" },
+      { property: "og:description", content: "Account-managed travel support across Kenya, Ghana and Nigeria." },
     ],
   }),
   component: Corporate,
@@ -19,14 +19,14 @@ export const Route = createFileRoute("/corporate")({
 
 const targets = ["Corporations", "Embassies", "NGOs", "Event Organisers", "Hotels", "Law Firms"];
 const features = [
-  "Dedicated Account Manager",
+  "Dedicated Coordinator",
   "Faster Booking Channels",
   "Priority 24/7 Support",
   "Monthly Reporting",
   "Consolidated Billing",
   "Custom SLAs",
-  "VIP Guest Handling",
-  "Executive Travel Management",
+  "Guest Arrival Handling",
+  "Team Travel Support",
 ];
 
 function Corporate() {
@@ -38,9 +38,9 @@ function Corporate() {
     <>
       <PageHero
         eyebrow="Corporate"
-        title="A travel partner your executives can rely on."
-        subtitle="Programs designed for organisations that move people across borders — without compromising on service."
-        image={loungeImg}
+        title="A travel partner your guests can rely on."
+        subtitle="Programs designed for organisations that move people across borders and want every arrival to feel safe, clear and cared for."
+        image={groupImg}
       >
         <Link to="/contact" className="btn-gold">Request Corporate Partnership</Link>
       </PageHero>
@@ -59,7 +59,7 @@ function Corporate() {
               <h2 className="text-3xl md:text-4xl font-display font-semibold mb-6">Everything your team needs, in one account.</h2>
               <p className="text-muted-foreground leading-relaxed">
                 Open a corporate account and gain a single point of contact, transparent monthly billing,
-                and a service standard your guests will remember.
+                and dependable airport support your guests will remember.
               </p>
             </div>
             <ul className="grid sm:grid-cols-2 gap-4">
@@ -77,12 +77,12 @@ function Corporate() {
       <section className="py-20 bg-[color:var(--navy)] text-white">
         <div className="container-luxe max-w-3xl text-center">
           <h2 className="text-3xl md:text-4xl font-display font-semibold">Speak to our Corporate Desk</h2>
-          <p className="mt-4 text-white/70">A senior manager will be in touch within one business day.</p>
+          <p className="mt-4 text-white/70">A member of our team will be in touch within one business day.</p>
           {sent ? (
             <div className="mt-10 rounded-none border border-white/10 bg-white/5 p-8 text-left">
               <p className="eyebrow text-white/70 mb-3">Thank you</p>
               <p className="text-lg font-display font-semibold">Your corporate enquiry has been received.</p>
-              <p className="mt-2 text-white/70">A senior manager will be in touch shortly.</p>
+              <p className="mt-2 text-white/70">A member of our team will be in touch shortly.</p>
             </div>
           ) : (
             <form

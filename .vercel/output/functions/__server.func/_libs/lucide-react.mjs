@@ -203,19 +203,6 @@ var Clock = createLucideIcon("clock", [["circle", {
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var Crown = createLucideIcon("crown", [["path", {
-	d: "M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z",
-	key: "1vdc57"
-}], ["path", {
-	d: "M5 21h14",
-	key: "11awu3"
-}]]);
-/**
-* @license lucide-react v0.575.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
 var Earth = createLucideIcon("earth", [
 	["path", {
 		d: "M21.54 15H17a2 2 0 0 0-2 2v4.54",
@@ -251,6 +238,34 @@ var Eye = createLucideIcon("eye", [["path", {
 	r: "3",
 	key: "1v7zrd"
 }]]);
+/**
+* @license lucide-react v0.575.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var Handshake = createLucideIcon("handshake", [
+	["path", {
+		d: "m11 17 2 2a1 1 0 1 0 3-3",
+		key: "efffak"
+	}],
+	["path", {
+		d: "m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4",
+		key: "9pr0kb"
+	}],
+	["path", {
+		d: "m21 3 1 11h-2",
+		key: "1tisrp"
+	}],
+	["path", {
+		d: "M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3",
+		key: "1uvwmv"
+	}],
+	["path", {
+		d: "M3 4h8",
+		key: "1ep09j"
+	}]
+]);
 /**
 * @license lucide-react v0.575.0 - ISC
 *
@@ -622,4 +637,4 @@ var X = createLucideIcon("x", [["path", {
 	key: "d8bk6v"
 }]]);
 //#endregion
-export { ArrowRight as A, Eye as C, CircleCheck as D, Clock as E, Calendar as O, HeartHandshake as S, Crown as T, MessageCircle as _, Star as a, Mail as b, ShieldCheck as c, Plus as d, Plane as f, Minus as g, Phone as h, UserCheck as i, Briefcase as k, Repeat as l, PlaneLanding as m, Utensils as n, Sparkles as o, PlaneTakeoff as p, Users as r, Shield as s, X as t, Quote as u, Menu as v, Earth as w, Hotel as x, MapPin as y };
+export { ArrowRight as A, Handshake as C, CircleCheck as D, Clock as E, Calendar as O, HeartHandshake as S, Earth as T, MessageCircle as _, Star as a, Mail as b, ShieldCheck as c, Plus as d, Plane as f, Minus as g, Phone as h, UserCheck as i, Briefcase as k, Repeat as l, PlaneLanding as m, Utensils as n, Sparkles as o, PlaneTakeoff as p, Users as r, Shield as s, X as t, Quote as u, Menu as v, Eye as w, Hotel as x, MapPin as y };

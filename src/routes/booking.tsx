@@ -2,15 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
-import heroImg from "@/assets/hero-arrival.jpg";
+import heroImg from "@/assets/ARRIVAL IMG.png";
 
 export const Route = createFileRoute("/booking")({
   head: () => ({
     meta: [
-      { title: "Book Concierge Service — ACS" },
-      { name: "description", content: "Book VIP airport meet & assist, chauffeur transfers and concierge services in under two minutes." },
-      { property: "og:title", content: "Book a Concierge Service — Altitude" },
-      { property: "og:description", content: "Reserve premium airport assistance across Kenya, Ghana and Nigeria." },
+      { title: "Book Airport Meet & Assist - ACS" },
+      { name: "description", content: "Book safe airport meet & assist, guided arrivals, transfers and travel support in under two minutes." },
+      { property: "og:title", content: "Book Airport Meet & Assist - Altitude" },
+      { property: "og:description", content: "Reserve safe airport assistance across Kenya, Ghana and Nigeria." },
     ],
   }),
   component: Booking,
@@ -24,14 +24,14 @@ function Booking() {
   if (submitted) {
     return (
       <>
-        <PageHero eyebrow="Confirmed" title="Your concierge request is received." image={heroImg} />
+        <PageHero eyebrow="Confirmed" title="Your request is received." image={heroImg} />
         <section className="py-24">
           <div className="container-luxe max-w-xl text-center card-luxe">
             <CheckCircle2 className="text-[color:var(--gold)] mx-auto mb-6" size={48} strokeWidth={1.2} />
             <p className="eyebrow mb-3">Booking Reference</p>
             <p className="font-display text-3xl font-semibold tracking-widest">{submitted}</p>
             <p className="mt-6 text-muted-foreground">
-              A senior concierge will be in touch shortly to confirm every detail.
+              A member of our team will be in touch shortly to confirm every detail.
               You will also receive WhatsApp updates leading up to your service.
             </p>
           </div>
@@ -44,8 +44,8 @@ function Booking() {
     <>
       <PageHero
         eyebrow="Book"
-        title="Confirm your concierge request."
-        subtitle="Tell us about your travel — we'll take care of the rest."
+        title="Confirm your travel support."
+        subtitle="Tell us about your travel and we will prepare the safest, clearest arrival plan."
         image={heroImg}
       />
 
@@ -111,7 +111,7 @@ function Booking() {
               <Select
                 label="Service Type"
                 name="service"
-                options={["Arrival Assistance", "Departure Assistance", "Transit Assistance", "Concierge", "Chauffeur", "Corporate"]}
+                options={["Arrival Assistance", "Departure Assistance", "Transit Assistance", "Airport Transfer", "Concierge", "Corporate"]}
               />
               <div className="md:col-span-2">
                 <label className="block text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2 font-display">Additional Notes</label>
@@ -121,7 +121,7 @@ function Booking() {
 
             {error ? <p className="text-sm text-red-600">{error}</p> : null}
             <button type="submit" className="btn-gold w-full md:w-auto" disabled={isSubmitting}>
-              {isSubmitting ? "Submitting..." : "Confirm Concierge Request"}
+              {isSubmitting ? "Submitting..." : "Confirm Request"}
             </button>
           </form>
         </div>

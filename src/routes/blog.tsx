@@ -1,30 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { ArrowRight } from "lucide-react";
-import loungeImg from "@/assets/lounge.jpg";
-import chauffeurImg from "@/assets/chauffeur.jpg";
-import conciergeImg from "@/assets/concierge.jpg";
-import airportImg from "@/assets/airport-aerial.jpg";
+import meetGreetImg from "@/assets/Welcome to lagos.png";
+import transferImg from "@/assets/chauffer.png";
+import guideImg from "@/assets/show around.png";
+import airportImg from "@/assets/Arrivees.png";
 
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
-      { title: "The Altitude Journal — Travel & Concierge Insights" },
-      { name: "description", content: "Travel tips, airport guides, executive travel and concierge insights for the discerning African traveller." },
+      { title: "The Altitude Journal - Airport Safety & Travel Tips" },
+      { name: "description", content: "Airport safety tips, arrival guides and practical travel support across Kenya, Ghana and Nigeria." },
       { property: "og:title", content: "The Altitude Journal" },
-      { property: "og:description", content: "Insights on premium travel across Kenya, Ghana and Nigeria." },
+      { property: "og:description", content: "Practical airport and travel guidance across Kenya, Ghana and Nigeria." },
     ],
   }),
   component: Blog,
 });
 
 const posts = [
-  { cat: "Airport Guides", title: "Navigating Jomo Kenyatta: A Premium Traveller's Guide", img: airportImg, date: "Jun 2026" },
-  { cat: "Executive Travel", title: "Why Fast-Track Pays for Itself on Every Business Trip", img: loungeImg, date: "May 2026" },
-  { cat: "Concierge Insights", title: "The Quiet Art of Discretion in Luxury Service", img: conciergeImg, date: "May 2026" },
-  { cat: "Travel Tips", title: "Five Things Diplomats Always Pack — and Why", img: chauffeurImg, date: "Apr 2026" },
-  { cat: "Airport Guides", title: "Lagos Airport: What VIP Travellers Need to Know", img: airportImg, date: "Apr 2026" },
-  { cat: "Business Travel", title: "Building a Corporate Travel Programme that Actually Works", img: loungeImg, date: "Mar 2026" },
+  { cat: "Airport Guides", title: "Navigating Jomo Kenyatta with Confidence", img: airportImg, date: "Jun 2026" },
+  { cat: "Arrival Tips", title: "What to Expect When Someone Meets You at Arrivals", img: meetGreetImg, date: "May 2026" },
+  { cat: "Travel Safety", title: "How Solo Travellers Can Feel Safer After Landing", img: guideImg, date: "May 2026" },
+  { cat: "Transfers", title: "Choosing a Reliable Airport Pick-up", img: transferImg, date: "Apr 2026" },
+  { cat: "Airport Guides", title: "Lagos Airport: Arrival Tips for Everyday Travellers", img: airportImg, date: "Apr 2026" },
+  { cat: "Business Travel", title: "Building a Travel Program People Can Trust", img: guideImg, date: "Mar 2026" },
 ];
 
 function Blog() {
@@ -32,8 +32,8 @@ function Blog() {
     <>
       <PageHero
         eyebrow="The Altitude Journal"
-        title="Insights from the world of premium travel."
-        image={loungeImg}
+        title="Practical guidance for safer travel."
+        image={guideImg}
       />
       <section className="py-24">
         <div className="container-luxe grid gap-10 md:grid-cols-2 lg:grid-cols-3">
@@ -44,7 +44,7 @@ function Blog() {
               </div>
               <div className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">
                 <span className="text-[color:var(--gold)]">{p.cat}</span>
-                <span>·</span>
+                <span>|</span>
                 <span>{p.date}</span>
               </div>
               <h3 className="text-xl font-display font-semibold group-hover:text-[color:var(--gold)] transition-colors leading-tight">

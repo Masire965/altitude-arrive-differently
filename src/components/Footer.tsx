@@ -16,9 +16,9 @@ export function Footer() {
             </div>
           </div>
           <p className="text-sm leading-relaxed text-white/60 max-w-xs">
-            Premium airport meet & assist, concierge and executive travel across Kenya, Ghana and Nigeria.
+            Safe airport meet & assist, guided arrivals and reliable travel support across Kenya, Ghana and Nigeria.
           </p>
-          <p className="mt-6 text-xs tracking-[0.3em] uppercase text-[color:var(--gold)]">Arrive Differently.</p>
+          <p className="mt-6 text-xs tracking-[0.3em] uppercase text-[color:var(--gold)]">Arrive Safely.</p>
         </div>
 
         <div>

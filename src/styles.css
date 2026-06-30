@@ -43,7 +43,7 @@
   /* Brand */
   --navy: oklch(0.25 0.05 260);          /* #0F2744 deep navy */
   --navy-foreground: oklch(0.98 0.005 90);
-  --gold: oklch(0.755 0.105 80);         /* #C7A45B luxury gold */
+  --gold: oklch(0.755 0.105 80);         /* #C7A45B warm gold */
   --gold-foreground: oklch(0.18 0.04 260);
 
   --background: oklch(0.985 0.004 90);   /* warm off-white */
