@@ -1,1 +1,0 @@
-var e=`/assets/ARRIVAL%20IMG-BJvx3GBH.png`;export{e as t};

@@ -1,1 +1,0 @@
-var e=`/assets/Welcome%20to%20lagos-CypNIgdo.png`;export{e as t};
